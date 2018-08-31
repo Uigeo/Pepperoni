@@ -1,0 +1,15 @@
+{
+  "name": "paser_prac",
+  "version": "1.0.0",
+  "description": "This is for practicing PHP parser made in javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "YAEGER",
+  "license": "ISC",
+  "dependencies": {
+    "php-parser": "^3.0.0-prerelease.1",
+    "underscore": "^1.9.1"
+  }
+}
