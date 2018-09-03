@@ -1,24 +1,26 @@
 const SwitchVisitor=require('./SwitchVisitor');
 const Visitor=require('./Visitor');
-
+const _=require('underscore');
 class NoDefaultcaseSwtichDetec extends SwitchVisitor {
     constructor() {
         super();
-        
+        this.default_offsets=[];
     }
     
     visit(node){
         super.visit(node);
-        var is_default=false;
-        var loc=0;
         this.switchcases.forEach(e=>{
             if(e.test==null){
-                is_default=true;
-            }else{}
-            
+                this.default_offsets.push({"start":e.loc.start.offset,"end":e.loc.end.offset});
+            }
         });
-        
-        return !is_default?console.log("NO_DEFAULT_CASE IN LINE"+loc):console.log();
+        this.stms.forEach(e=>{
+            this.default_offsets.forEach(k=>{
+                if(e.loc.start.offset<k.start&&e.loc.end.offset>k.end)  //eliminates having default switchcases from stms. then, nodefault switchcases are left in stms which are NONSECURE.
+                    this.stms=_.without(this.stms,e);
+            });
+        });
+        this.stms.forEach(e=>console.log(" Missing Default Case in Switch Statement in line "+e.loc.start.line));
     }
 }
 

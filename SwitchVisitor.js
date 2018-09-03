@@ -1,5 +1,5 @@
 const NodeVisitor = require('./NodeVisitor');
-
+const _=require('underscore');
 class SwitchVisitor extends NodeVisitor {
     constructor() {
         super('switch');
@@ -10,8 +10,10 @@ class SwitchVisitor extends NodeVisitor {
     visit(node){
       super.visit(node);
       this.stms.forEach(e=>{
-          this.switchcases.push(e.body.children);
-      });
+          e.body.children.forEach(k=>{
+             this.switchcases.push(k);  //each case: condition
+          });
+    });
     }
 }
 

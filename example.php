@@ -10,7 +10,7 @@ switch (n) {
         break;
     case 3:
         break;
-    default;
+    default:
 }
 
 switch(n){
@@ -20,6 +20,22 @@ switch(n){
     break;
 }
 
+switch (n) {
+    case 1:
+        break;
+    case 2:
+        break;
+    case 3:
+        break;
+    default:
+}
+
+switch(n){
+    case 2:
+      break;
+    case 3:
+      break;
+  }
 
 
 // function testParser($k) {
