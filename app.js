@@ -1,7 +1,7 @@
 
-const AssignVisitor = require('./AssignVisitor.js');
-const CallVisitor = require('./CallVisitor');
-const SetcookieVisitor = require('./SetcookieVisitor');
+const AssignVisitor = require('./visitor/AssignVisitor');
+const CallVisitor = require('./visitor/CallVisitor');
+const SetcookieVisitor = require('./visitor/SetcookieVisitor');
 
 var parser = require('./main');
 var fs = require('fs');
@@ -20,9 +20,9 @@ code.accept(setcookie_visitor);
 
 //console.log(assign_visitor.stms);
 console.log("----------------------------------------------------------");
-console.log(call_visitor.stms);
+console.log(call_visitor.nodes);
 console.log("----------------------------------------------------------");
-console.log(setcookie_visitor.stms);
+console.log(setcookie_visitor.nodes);
 
 
 
