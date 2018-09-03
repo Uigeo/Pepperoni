@@ -36,4 +36,33 @@ setcookie("TestCookie", $value);
 setcookie("TestCookie", $value, time()+3600);  /* expire in 1 hour */
 setcookie("TestCookie", $value, time()+3600, "/~rasmus/", "example.com", 1);
 
+
+switch (n) {
+  case label1:
+    
+      break;
+  case label2:
+ 
+      break;
+  case label3:
+  
+      break;
+
+  default:
+     1==1;
+}
+
+switch (n) {
+  case label1:
+    
+      break;
+  case label2:
+ 
+      break;
+  case label3:
+  
+      break;
+
+}
+
 ?>
