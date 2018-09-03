@@ -19,7 +19,7 @@ switch(n){
   case 3:
     break;
 }
-
+function a($k){
 switch (n) {
     case 1:
         break;
@@ -27,9 +27,8 @@ switch (n) {
         break;
     case 3:
         break;
-    default:
 }
-
+}
 switch(n){
     case 2:
       break;

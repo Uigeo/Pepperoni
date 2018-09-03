@@ -1,5 +1,5 @@
-const SwitchVisitor=require('./SwitchVisitor');
-const Visitor=require('./Visitor');
+const SwitchVisitor=require('./visitor/SwitchVisitor');
+const Visitor=require('./visitor/Visitor');
 const _=require('underscore');
 class NoDefaultcaseSwtichDetec extends SwitchVisitor {
     constructor() {
