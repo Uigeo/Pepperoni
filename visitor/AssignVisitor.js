@@ -1,4 +1,5 @@
 const NodeVisitor = require('./nodeVisitor');;
+const _ = require('underscore');
 
 class AssignVisitor extends NodeVisitor {
     constructor() {

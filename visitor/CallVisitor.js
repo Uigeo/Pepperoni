@@ -2,15 +2,15 @@
 const NodeVisitor = require('./nodeVisitor');
 const _ = require('underscore');
 
-class VariableVisitor extends NodeVisitor {
+class CallVisitor extends NodeVisitor {
     constructor() {
         super();
     }
 
     visit(node){
       super.visit(node);
-      this.nodes = _.filter(this.nodes, e=>e.kind == 'variable' );
+      this.nodes = _.filter(this.nodes, e=>e.kind == 'call' );
     }
 }
 
-module.exports = VariableVisitor;
+module.exports = CallVisitor;
