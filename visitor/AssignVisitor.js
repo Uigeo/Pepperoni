@@ -1,12 +1,13 @@
-const NodeVisitor = require('./NodeVisitor');;
+const NodeVisitor = require('./nodeVisitor');;
 
 class AssignVisitor extends NodeVisitor {
     constructor() {
-        super('assign');
+        super();
     }
 
     visit(node){
       super.visit(node);
+      this.nodes = _.filter( this.nodes, e=>e.kind == 'assign' );
     }
 }
 
