@@ -8,7 +8,7 @@ class SetcookieVisitor extends CallVisitor{
 
     visit(node){
         super.visit(node);
-        this.nodes = _.filter(this.nodes, e => e.what.name == 'setcookie');
+        this.nodes = _.filter(this.nodes, e =>  _.has(e.what, 'name') && e.what.name == 'setcookie');
     }
 }
 
