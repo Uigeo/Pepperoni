@@ -1,4 +1,4 @@
-const CallVisitor = require('./CallVisitor');
+const CallVisitor = require('./callVisitor');
 const _ = require('underscore');
 
 class SetcookieVisitor extends CallVisitor{
@@ -8,8 +8,7 @@ class SetcookieVisitor extends CallVisitor{
 
     visit(node){
         super.visit(node);
-        this.nodes = _.filter(this.nodes, function(e){
-            return e.what.name == 'setcookie'});
+        this.nodes = _.filter(this.nodes, e => e.what.name == 'setcookie');
     }
 }
 
