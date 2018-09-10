@@ -2,9 +2,9 @@ const _ = require('underscore');
 const Detector = require('./detector');
 const TryVisitor = require('../visitor/tryVisitor');
 
-/ **
-   * This Class is Detector for finding empty catch block
-   */
+/**
+ * This Class is Detector for finding empty catch block
+ */
 class EmptyCatch_Detector extends Detector {
     constructor(){
         super();
