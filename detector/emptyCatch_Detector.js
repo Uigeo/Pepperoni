@@ -22,7 +22,6 @@ class EmptyCatch_Detector extends Detector {
                 this.emptyCatch.push(this.nodes[i]);
             }
         }
-
         console.log("There is empty catch statement: ");
         this.printLine(this.emptyCatch);
     }
@@ -33,5 +32,4 @@ class EmptyCatch_Detector extends Detector {
         });
     }
 }
-
 module.exports = EmptyCatch_Detector;

@@ -7,7 +7,6 @@ class NodeVisitor extends Visitor {
         this.nodes = [];
     }
 
-    
     visit(node){
         _.each( _.values(node), (value)=>{
             if( _.has( value, 'kind')){
