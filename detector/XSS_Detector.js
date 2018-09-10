@@ -1,6 +1,6 @@
 const _ = require('underscore');
 const Detector = require('./detector');
-const AssignVisitor = require('../visitor/assignVisitor');
+const AssignVisitor = require('../visitor/AssignVisitor');
 const PostVisitor = require('../visitor/postVisitor');
 const GetVisitor = require('../visitor/getVisitor');
 const EchoVisitor = require('../visitor/echoVisitor');
@@ -48,10 +48,8 @@ class XSS_Detector extends Detector {
     findTaintsink(sinknodes){
         _.each(sinknodes, sink=>{
             _.each(sink.arguments, arg=>{
-                console.log("*t*" + arg.name);
                 _.each(this.taints, taint=>{
-                    
-                    if(arg.name == taint.name) this.v.push(sink.loc);
+                    if(arg.name == taint.name) this.v.push(sink);
                 });
             } );
         });
