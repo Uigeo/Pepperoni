@@ -1,6 +1,5 @@
 <?php
 echo 'Hello ' . htmlspecialchars($_GET["name"]) . '!';
-
 while(true){
     if(1){
         echo "HEllo";
@@ -8,6 +7,5 @@ while(true){
         echo $_GET['name'];
     }
 }
-
 ?>
 

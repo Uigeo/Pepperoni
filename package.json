@@ -9,7 +9,11 @@
   "author": "YAEGER",
   "license": "ISC",
   "dependencies": {
+    "assert": "^1.4.1",
     "php-parser": "^3.0.0-prerelease.1",
     "underscore": "^1.9.1"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
   }
 }

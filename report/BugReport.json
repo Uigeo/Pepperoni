@@ -1,0 +1,23 @@
+[{
+  "BugInstance": {
+    "info" : {
+      "category": "INJECTION",
+      "name": "XSS",
+      "ID" : 13,
+      "rank": "Scary",
+      "type": "IJ", 
+      "CWE" : 14
+    },
+    "SourceLine": [
+      {
+          "filename": "/login.php",
+          "dir" : "/Applications/wordpress-4.9.4-5/apache2/htdocs/",
+          "start": "57",
+          "end": "58"
+      }
+    ],
+    "message" : "",
+    "suguestion" : ""
+  }
+}
+]

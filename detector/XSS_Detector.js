@@ -8,10 +8,6 @@ const EchoVisitor = require('../visitor/echoVisitor');
 class XSS_Detector extends Detector {
     constructor() {
         super();
-        this.assignVisitor = new AssignVisitor();
-        this.postVisitor = new PostVisitor();
-        this.getVisitor = new GetVisitor();
-        this.echoVisitor = new EchoVisitor();
         this.taints = [];
         this.sinkpoint =[];
         this.v = [];
