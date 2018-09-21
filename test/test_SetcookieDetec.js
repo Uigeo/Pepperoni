@@ -1,11 +1,11 @@
-const Setcookie_Detector = require('../detector/setcookie_Detector');
+const SetcookieDetector = require('../detector/SetcookieDetector');
 
 var parser = require('../main');
 var fs = require('fs');
 
 var phpFile = fs.readFileSync( './php_test_case/setcookieVisitor.php' );
-var code = parser.parseCode(phpFile);
+var node = parser.parseCode(phpFile);
 
-var detector = new Setcookie_Detector();
+var setcookieDetector = new SetcookieDetector();
 
-detector.detect(code);
+setcookieDetector.detect(node);

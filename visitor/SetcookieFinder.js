@@ -1,19 +1,20 @@
+const CallNodesGetter = require('./CallNodesGetter');
 const _ = require('underscore');
-const Detector = require('./detector');
-const SetcookieVisitor = require('../visitor/setcookieVisitor');
 
-class Setcookie_Detector extends Detector {
+class SetcookieFinder extends CallNodesGetter{
+    
     constructor() {
         super();
-        this.setcookieVisitor = new SetcookieVisitor();
         this.danger_cookie = [];
         this.weak_cookie = [];
     }
 
-    detect(node){
-        node.accept(this.setcookieVisitor);
-        this.nodes = this.setcookieVisitor.nodes;
-        
+    visit(node){
+        super.visit(node);
+        this.nodes = _.filter(this.nodes, e =>  _.has(e.what, 'name') && e.what.name == 'setcookie');
+    }
+
+    execute(){
         for(let i=0; i < this.nodes.length; i++){
             this.argument = this.nodes[i].arguments;
             
@@ -38,11 +39,14 @@ class Setcookie_Detector extends Detector {
                 this.weak_cookie.push(this.nodes[i]);
             }
         }
+
         
+        /* TODO: make bug instance */
         console.log("Weak cookies : The parameter of setcookie function of HttpOnly is '0'");
         this.printLine(this.weak_cookie);
         console.log("Dangerous cookies : There is no parameter about HttpOnly setting");
         this.printLine(this.danger_cookie);
+
     }
 
     printLine(stms){
@@ -52,7 +56,4 @@ class Setcookie_Detector extends Detector {
     }
 }
 
-module.exports = Setcookie_Detector;
-
-
-
+module.exports = SetcookieFinder;
