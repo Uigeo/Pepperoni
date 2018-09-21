@@ -13,6 +13,10 @@ class SetcookieDetector extends Detector {
         node.accept(setcookieFinder);
         
         setcookieFinder.execute();
+
+
+        //TODO generate bug instance
+        //generateBug();
     }
 
 }
