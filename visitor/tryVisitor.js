@@ -1,4 +1,4 @@
-const NodeVisitor = require('./nodeVisitor');
+const NodeVisitor = require('./NodeVisitor');
 const _ = require('underscore');
 
 class TryVisitor extends NodeVisitor {

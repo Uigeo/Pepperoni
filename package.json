@@ -9,6 +9,8 @@
   "author": "YAEGER",
   "license": "ISC",
   "dependencies": {
+    "commander": "^2.18.0",
+    "i": "^0.3.6",
     "php-parser": "^3.0.0-prerelease.1",
     "underscore": "^1.9.1"
   }
