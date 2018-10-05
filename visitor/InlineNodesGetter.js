@@ -1,5 +1,5 @@
 const Visitor = require('./visitor');
-const _ = require('underscore');
+const _= require('underscore');
 
 class InlineNodesGetter extends Visitor {
     constructor() {
