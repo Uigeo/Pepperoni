@@ -1,33 +1,36 @@
-const Visitor = require('./visitor');
+const InlineNodesGetter = require('./InlineNodesGetter');
+const LocPrinter = require('./LocPrinter');
 const _= require('underscore');
 
-class FormTagFinder extends Visitor {
+class FormTagFinder extends InlineNodesGetter {
     constructor() {
         super();
         this.nodes = [];
-        
+        this.bugList = [];
     }
     
 
 
     visit(node){
-        _.each( _.values(node), (value)=>{
-            if( _.has( value, 'value')){
-                if(value.kind == 'inline')this.nodes.push(value);              
-            }
-            if(_.keys(value).length){
-                this.visit(value);
-            }
-        });
+        super.visit(node);
     }
-    //TODO: implement execute method.
-    /*
-    var url = 'https://taegon.kim/aboutme';
-    var protocol = ( /^https?(?=:\/\/)/.exec( url ) || [''] )[0];
-    console.log( protocol ); // 'https'
-    */
-    execute(){
 
+    execute(){
+        for(let i=0; i<this.nodes.length; i++){
+            var str = this.nodes[i].value;
+            if(/< *(form|FORM) *(method|METHOD) *= *\"(post|POST)\"/.test(str)){
+                this.bugList.push(this.nodes[i]);
+            }
+        }
+
+        console.log("Form tage with \"GET\" method:");
+        this.printLine(this.bugList);
+    }
+
+    printLine(stms){
+        stms.forEach(e=>{
+          console.log(e.loc.start);
+        });
     }
 
 }
