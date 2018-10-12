@@ -6,8 +6,10 @@ const TryNodesGetter = require('../visitor/TryNodesGetter');
 class ErrorMsgOutflowFinder extends TryNodesGetter {
     constructor(){
         super();
-        this.warningList = [];    
-        this.dangerFuncList = ['getTraceAsString', 'getTrace'];
+        this.warningList = []; 
+        
+        this.dangerFuncList = ['getTraceAsString', 'getTrace', 'getTraceAsString()', 'getTrace()', 'error_log()', 
+        'getMessage()', 'getPrevious()', 'getCode()', 'getFile()', 'getLine()', 'die()']; //This is from the secure_php_programming_guideline(19)
     }
 
     visit(node){
@@ -32,12 +34,14 @@ class ErrorMsgOutflowFinder extends TryNodesGetter {
             }
         }
 
-        for(let i=0; i < this.callNodes.length; i++){
-            console.log(this.callNodes[i].what.name);
-        }
+        //code for debugging
+        // for(let i=0; i < this.callNodes.length; i++){
+        //     console.log(this.callNodes[i].what.name);
+        // }
         
         this.inspect(this.callNodes);
 
+        console.log("There is some functions that outflows error message");
         this.printLine(this.warningList);
 
         
