@@ -1,4 +1,4 @@
-//const FormTagGetter = require('../visitor/FormTagGetter');
+const FormTagFinder = require('../visitor/FormTagFinder');
 const InlineNodesGetter = require('../visitor/InlineNodesGetter');
 const Detector = require('./Detector');
 const _ = require('underscore');
@@ -9,11 +9,13 @@ class CSRFDetector extends Detector {
     }
 
     detect(node){
-        var inlineNodesGetter = new InlineNodesGetter();
+        var formTagFinder = new FormTagFinder();
 
-        node.accept(inlineNodesGetter);
+        node.accept(formTagFinder);
 
-        console.log(inlineNodesGetter.nodes);
+        //console.log(inlineNodesGetter.nodes);
+
+        formTagFinder.execute();
 
     
 

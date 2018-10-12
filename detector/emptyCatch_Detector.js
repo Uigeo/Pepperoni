@@ -1,18 +1,18 @@
 const _ = require('underscore');
 const Detector = require('./detector');
-const TryVisitor = require('../visitor/tryVisitor');
+const TryNodesGetter = require('../visitor/TryNodesGetter');
 
 
 class EmptyCatch_Detector extends Detector {
     constructor(){
         super();
-        this.tryVisitor = new TryVisitor();
+        this.TryNodesGetter = new TryNodesGetter();
         this.emptyCatch = [];
     }
 
     detect(node){
-        node.accept(this.tryVisitor);
-        this.nodes = this.tryVisitor.nodes;
+        node.accept(this.TryNodesGetter);
+        this.nodes = this.TryNodesGetter.nodes;
 
         for(let i=0; i < this.nodes.length; i++){
             this.catch = this.nodes[i].catches[0];
