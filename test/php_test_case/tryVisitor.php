@@ -15,7 +15,8 @@ if(false){
         echo inverse(5) . "\n";
         echo inverse(0) . "\n";
     } catch (Exception $e) {
-    
+        getTraceAsString();
+        getTrace();
     }
 } else{
     echo "ho";
