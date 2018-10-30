@@ -35,7 +35,7 @@ class SetcookieFinder extends CallNodesGetter{
                 this.danger_cookie.push(this.nodes[i]);
             }
 
-            if(this.countNumber == 1 && this.argument[this.offset].value == '1'){
+            if(this.countNumber == 1 && this.argument[this.offset].value != '1'){
                 this.weak_cookie.push(this.nodes[i]);
             }
         }
