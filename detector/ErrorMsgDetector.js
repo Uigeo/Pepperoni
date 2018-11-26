@@ -13,7 +13,7 @@ class ErrorMsgDetector extends Detector {
         
         node.accept(finder);
         finder.execute();
-        this.path = path;
+        //this.path = path;
     }
 
     bugReport(){

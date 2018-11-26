@@ -7,14 +7,14 @@ class CSRFDetector extends Detector {
     constructor(){
       super();
       this.formTagFinder;
-      this.path = path;
+      //this.path = path;
     }
 
     detect(node){
         this.formTagFinder = new FormTagFinder();
 
-        node.accept(formTagFinder);
-        formTagFinder.execute();
+        node.accept(this.formTagFinder);
+        this.formTagFinder.execute();
     }
 
     bugReport(){

@@ -7,7 +7,7 @@ class SetcookieDetector extends Detector {
       super();
       this.cookies;
       this.setcookieFinder;
-      this.path = path;
+      //this.path = path;
 
     }
 
