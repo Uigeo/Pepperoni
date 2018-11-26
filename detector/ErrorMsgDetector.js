@@ -13,6 +13,28 @@ class ErrorMsgDetector extends Detector {
         
         node.accept(finder);
         finder.execute();
+        this.path = path;
+    }
+
+    bugReport(){
+        return _.map(this.visitor.nodes, (vul)=>{
+            return {
+                'info' : {
+                    "category" : "Error Handling",
+                    "name" : "Information Exposure Through an Error Message",
+                    'ID' : 22,
+                    'rank' : 1,
+                    'CWE' : 391
+                },
+                'SourceLine' : {
+                    "filename" : this.path,
+                    "start" :  vul.loc.start,
+                    "end" : vul.loc.end,
+                },
+                'message' : "We found that the system error message is being printed out.",
+                'sugestion' : "delete or change it"
+            }
+        } );
     }
 }
 

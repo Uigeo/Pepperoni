@@ -17,8 +17,6 @@ class SetcookieDetector extends Detector {
         node.accept(this.setcookieFinder);
         
         this.setcookieFinder.execute();
-
-
     }
 
     //두 가지 종류의 bug가 있어서 리포트를 다르게 해주어도 될 거 같다.
