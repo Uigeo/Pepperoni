@@ -18,8 +18,6 @@ class SetcookieDetector extends Detector {
         
         this.setcookieFinder.execute();
 
-        this.bugReport();
-        console.log(this.cookies);
 
     }
 
