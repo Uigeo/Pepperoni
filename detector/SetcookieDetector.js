@@ -3,11 +3,11 @@ const Detector = require('./Detector');
 const _ = require('underscore');
 
 class SetcookieDetector extends Detector {
-    constructor(){
+    constructor(src, path){
       super();
       this.cookies;
       this.setcookieFinder;
-      //this.path = path;
+      this.path = path;
 
     }
 
@@ -19,7 +19,7 @@ class SetcookieDetector extends Detector {
         this.setcookieFinder.execute();
     }
 
-    //두 가지 종류의 bug가 있어서 리포트를 다르게 해주어도 될 거 같다.
+    //두 가지 종류의 bug가 있어서 리포트를 다르게 해주어도 될 거 같다. 일단 합침
     bugReport(){
         this.cookies = this.setcookieFinder.danger_cookie.concat(this.setcookieFinder.weak_cookie);
         return _.map(this.cookies, (vul)=>{

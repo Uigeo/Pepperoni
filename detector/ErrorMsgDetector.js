@@ -4,8 +4,9 @@ const ErrorMsgOutflowFinder = require('../visitor/ErrorMsgOutflowFinder');
 
 
 class ErrorMsgDetector extends Detector {
-    constructor(){
+    constructor(src, path){
         super();
+        this.path = path;
     }
 
     detect(node){

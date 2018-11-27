@@ -4,10 +4,10 @@ const Detector = require('./Detector');
 const _ = require('underscore');
 
 class CSRFDetector extends Detector {
-    constructor(){
+    constructor(src, path){
       super();
       this.formTagFinder;
-      //this.path = path;
+      this.path = path;
     }
 
     detect(node){
